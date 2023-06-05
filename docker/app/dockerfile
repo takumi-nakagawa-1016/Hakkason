@@ -1,5 +1,5 @@
 FROM php:8.2-fpm
-
+COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
 # マルチステージビルドを利用してのcomposerとphp-extension-installerコマンドのインストール
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/
