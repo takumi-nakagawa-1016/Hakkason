@@ -1,5 +1,5 @@
 FROM php:8.2-fpm
-
+EXPOSE 5173
 ENV TZ Asia/Tokyo
 
 RUN apt-get update && apt-get install -y \
