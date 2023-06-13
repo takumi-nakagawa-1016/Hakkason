@@ -2,12 +2,12 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 const container = document.getElementById('app');
-const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+const root = createRoot(container!);
 
 root.render(
-    // <React.StrictMode>
+    <React.StrictMode>
     <div className="text-red">
         Hello World
     </div>
-// </React.StrictMode>,
+</React.StrictMode>,
 );
