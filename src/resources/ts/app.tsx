@@ -1,13 +1,12 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Test from "./components/Test";
-
-// index.blade.phpのid="app"を読み込む
-const container = document.getElementById('app');
-const root = createRoot(container!);
+import React from 'react'
+import { RouterProvider } from 'react-router-dom'
+import {router} from "./rootes";
 
 
+const App: React.FC = () => {
+    return (
+        <RouterProvider router={router} />
+    )
+}
 
-root.render(
-    <Test/>
-);
+export default App
