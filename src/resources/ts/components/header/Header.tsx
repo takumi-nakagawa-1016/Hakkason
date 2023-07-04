@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box, Heading } from '@chakra-ui/react';
 
 const Header: React.FC = () => {
     return (
-        <header style={{ backgroundColor: 'green', height: '60px', padding: '10px' }}>
-            <h1 style={{ color: 'white' }}>Mile Calendar</h1>
-        </header>
+        <Box bg="green" h="60px" p="10px" display="flex" alignItems="center">
+            <Heading color="white" size="xl">Mile Calendar</Heading>
+        </Box>
     );
 };
 
