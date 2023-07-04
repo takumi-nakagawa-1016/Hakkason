@@ -5,7 +5,7 @@ import MileStone from "./pages/MileStone";
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <HomePage />
+        element: <MileStone />
     }, {
         path: 'milestone',
         element: <MileStone />
