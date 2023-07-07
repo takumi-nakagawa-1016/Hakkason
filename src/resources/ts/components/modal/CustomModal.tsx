@@ -12,10 +12,54 @@ import {
     ModalHeader,
     ModalOverlay, Textarea
 } from "@chakra-ui/react";
-import React from "react";
+import React, {useState} from "react";
 import {CloseIcon} from "@chakra-ui/icons";
 
+// @ts-ignore
 const ModalComponent = ({ onClose }) => {
+    const [name, setName] = useState('');
+    const [content, setContent] = useState('');
+    const [deadline, setDeadline] = useState('');
+
+    // @ts-ignore
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
+
+    // @ts-ignore
+    const handleContentChange = (event) => {
+        setContent(event.target.value);
+    };
+
+    // @ts-ignore
+    const handleDeadlineChange = (event) => {
+        setDeadline(event.target.value);
+    };
+
+    const handleSubmit = async () => {
+        const requestBody = {
+            name: name,
+            content: content,
+            deadline: deadline,
+        };
+
+        try {
+            const response = await fetch('/api/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+        } catch (error) {
+            // エラーハンドリングを行います
+        }
+    };
+
     return (
         <Modal isOpen={true} onClose={onClose} size="sm">
             <ModalOverlay />
@@ -32,26 +76,23 @@ const ModalComponent = ({ onClose }) => {
 
                 </ModalHeader>
                 <ModalBody>
-                    {/* マイルストーンの名前 */}
                     <FormControl id="name">
                         <FormLabel>名前:</FormLabel>
-                        <Input type="text" />
+                        <Input type="text" value={name} onChange={handleNameChange} />
                     </FormControl>
 
-                    {/* マイルストーンの内容 */}
                     <FormControl id="content">
                         <FormLabel>内容:</FormLabel>
-                        <Textarea rows={4} />
+                        <Textarea rows={4} value={content} onChange={handleContentChange} />
                     </FormControl>
 
-                    {/* マイルストーンの期日 */}
                     <FormControl id="deadline">
                         <FormLabel>期日:</FormLabel>
-                        <Input type="date" />
+                        <Input type="date" value={deadline} onChange={handleDeadlineChange} />
                     </FormControl>
                 </ModalBody>
                 <ModalFooter>
-                    <Button colorScheme="teal">Create</Button>
+                    <Button colorScheme="teal" onClick={handleSubmit}>Create</Button>
                 </ModalFooter>
             </ModalContent>
         </Modal>
