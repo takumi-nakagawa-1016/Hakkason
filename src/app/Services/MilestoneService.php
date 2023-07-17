@@ -8,7 +8,6 @@ use App\Models\Milestone;
 use App\Models\User;
 use App\Repositories\MilestoneRepositoryInterface;
 use app\Repositories\UserRepositoryInterface;
-use Illuminate\Support\Collection;
 
 class MilestoneService implements MilestoneServiceInterface
 {
@@ -19,14 +18,38 @@ class MilestoneService implements MilestoneServiceInterface
     )
     {}
 
-    public function storeMilestone(array $milestone): bool
+    public function storeMilestone(
+        string $name,
+        string $description,
+        string $status,
+        string $duedata,
+    ): bool
     {
+        $milestone = [
+            'name' => $name,
+            'description' => $description,
+            'status' => $status,
+            'due_data' => $duedata,
+        ];
         $user = $this->userRepository->fetchAuthUser();
         return $this->milestoneRepository->storeMilestone($user, $milestone);
     }
 
-    public function updateMilestone(array $milestone): bool
+    public function updateMilestone(
+        string $id,
+        string $name,
+        string $description,
+        string $status,
+        string $duedata,
+    ): bool
     {
+        $milestone = [
+            'id' => $id,
+            'name' => $name,
+            'description' => $description,
+            'status' => $status,
+            'due_data' => $duedata,
+        ];
         $user = $this->userRepository->fetchAuthUser();
         return $this->milestoneRepository->updateMilestone($user, $milestone);
     }
@@ -36,10 +59,11 @@ class MilestoneService implements MilestoneServiceInterface
         return $this->milestoneRepository->deleteMilestone($milestone);
     }
 
-    public function fetchUserMilestone(User $uesr): Collection
+    public function fetchUserMilestone(): string
     {
         $user = $this->userRepository->fetchAuthUser();
-        return $this->milestoneRepository->fetchUserMilestone($user);
+        $milestones = $this->milestoneRepository->fetchUserMilestone($user);
+        return json_encode($milestones->toArray());
     }
 
     public function findMilestone(Milestone $milestone): Milestone

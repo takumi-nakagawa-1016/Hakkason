@@ -19,7 +19,7 @@ interface MilestoneRepositoryInterface
 
     public function fetchUserMilestone(User $user): Collection;
 
-    public function findMilestone(Milestone $milestone): Milestone;
+    public function findMilestone(string $id): ?Milestone;
 
 
 }

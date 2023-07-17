@@ -22,12 +22,17 @@ class MilestoneRepository implements MilestoneRepositoryInterface
 
     public function updateMilestone(User $user, array $milestone): bool
     {
-        return Milestone::update([
-            'user_id' => $user->id,
+        $milestone = $this->findMilestone($milestone['id']);
+        if (!$milestone) {
+            return false;
+        }
+        $milestone->update([
             'name' => $milestone['name'],
-            'due_data' => $milestone['due_data'],
+            'description' => $milestone['description'],
             'status' => $milestone['status'],
+            'due_data' => $milestone['due_data']
         ]);
+        return true;
     }
 
     public function deleteMilestone(Milestone $milestone): bool
@@ -43,10 +48,10 @@ class MilestoneRepository implements MilestoneRepositoryInterface
             ->get();
     }
 
-    public function findMilestone(Milestone $milestone): Milestone
+    public function findMilestone(string $id): ?Milestone
     {
         return Milestone::query()
-            ->find($milestone->id)
+            ->find($id)
             ->first();
     }
 }

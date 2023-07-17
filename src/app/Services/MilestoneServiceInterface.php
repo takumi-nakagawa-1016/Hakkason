@@ -6,17 +6,28 @@ namespace App\Services;
 
 use App\Models\Milestone;
 use App\Models\User;
-use Illuminate\Support\Collection;
+use PHPUnit\Util\Json;
 
 interface MilestoneServiceInterface
 {
-    public function storeMilestone(array $milestone): bool;
+    public function storeMilestone(
+        string $name,
+        string $description,
+        string $status,
+        string $duedata,
+    ): bool;
 
-    public function updateMilestone(array $milestone): bool;
+    public function updateMilestone(
+        string $id,
+        string $name,
+        string $description,
+        string $status,
+        string $duedata,
+    ): bool;
 
     public function deleteMilestone(Milestone $milestone): bool;
 
-    public function fetchUserMilestone(User $uesr): Collection;
+    public function fetchUserMilestone(): string;
 
     public function findMilestone(Milestone $milestone): Milestone;
 }
