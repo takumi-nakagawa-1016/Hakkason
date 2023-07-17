@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('milestone_tables', function (Blueprint $table) {
+        Schema::create('milestones', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->datetime('due_date');
-            $table->string('status');
+            $table->string('name')->comments('マイルストーン名');
+            $table->string('description')->nullable()->comments('詳細');
+            $table->integer('status')->comments('ステータス');
+            $table->datetime('due_date')->comments('期限');
             $table->timestamps();
         });
     }
