@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('milestone_tables', function (Blueprint $table) {
+        Schema::create('milestones', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->comment('ユーザID');
-            $table->string('name')->comment('マイルスローン名');
-            $table->datetime('due_date')->comment('締切日');
-            $table->string('status')->comment('達成ステータス');
+            $table->string('name')->comments('マイルストーン名');
+            $table->string('description')->nullable()->comments('詳細');
+            $table->integer('status')->comments('ステータス');
+            $table->datetime('due_date')->comments('期限');
             $table->timestamps();
 
 
@@ -24,9 +25,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('users');
         });
-
-
-
     }
 
     /**
