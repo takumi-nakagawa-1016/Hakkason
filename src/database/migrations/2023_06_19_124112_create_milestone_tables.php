@@ -13,11 +13,20 @@ return new class extends Migration
     {
         Schema::create('milestone_tables', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->datetime('due_date');
-            $table->string('status');
+            $table->unsignedBigInteger('user_id')->comment('ユーザID');
+            $table->string('name')->comment('マイルスローン名');
+            $table->datetime('due_date')->comment('締切日');
+            $table->string('status')->comment('達成ステータス');
             $table->timestamps();
+
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
+
+
+
     }
 
     /**
