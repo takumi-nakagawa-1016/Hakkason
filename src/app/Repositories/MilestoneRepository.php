@@ -36,7 +36,7 @@ class MilestoneRepository implements MilestoneRepositoryInterface
         return $milestone->delete();
     }
 
-    public function fetchAllMilestone(User $user): Collection
+    public function fetchUserMilestone(User $user): Collection
     {
         return  Milestone::query()
             ->where('user_id', $user->id)

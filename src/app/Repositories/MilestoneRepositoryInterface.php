@@ -17,7 +17,7 @@ interface MilestoneRepositoryInterface
 
     public function deleteMilestone(Milestone $milestone): bool;
 
-    public function fetchAllMilestone(User $user): Collection;
+    public function fetchUserMilestone(User $user): Collection;
 
     public function findMilestone(Milestone $milestone): Milestone;
 
