@@ -11,7 +11,7 @@ class MilestoneRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,9 @@ class MilestoneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required',],
+            'deadline' => ['required'],
         ];
-    }
-
-    public function getId(): string
-    {
-        return $this->input('id');
     }
 
     public function getName(): string
@@ -36,18 +32,13 @@ class MilestoneRequest extends FormRequest
         return $this->input('name');
     }
 
-    public function getDescription(): string
+    public function getMilestoneContent(): string
     {
-        return $this->input('description');
+        return $this->input('content');
     }
 
-    public function getStatus(): string
+    public function getDeadLine(): string
     {
-        return $this->input('status');
-    }
-
-    public function getDuedata(): string
-    {
-        return $this->input('due_data');
+        return $this->input('deadline');
     }
 }

@@ -14,6 +14,11 @@ class UserRepository implements UserRepositoryInterface
      */
     public function fetchAuthUser()
     {
-        return Auth::user();
+        return User::query()
+            ->find(1)
+            ->first();
+
+//        Todo 検証環境のため処理が異なります。
+//        return Auth::user();
     }
 }

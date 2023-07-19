@@ -44,7 +44,7 @@ const ModalComponent = ({ onClose }) => {
         };
 
         try {
-            const response = await fetch('/api/post', {
+            const response = await fetch('/api/milestone/store', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

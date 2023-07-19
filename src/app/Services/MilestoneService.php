@@ -7,7 +7,7 @@ namespace App\Services;
 use App\Models\Milestone;
 use App\Models\User;
 use App\Repositories\MilestoneRepositoryInterface;
-use app\Repositories\UserRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 
 class MilestoneService implements MilestoneServiceInterface
 {
@@ -21,16 +21,16 @@ class MilestoneService implements MilestoneServiceInterface
     public function storeMilestone(
         string $name,
         string $description,
-        string $status,
-        string $duedata,
+        string $duedate,
     ): bool
     {
         $milestone = [
             'name' => $name,
             'description' => $description,
-            'status' => $status,
-            'due_data' => $duedata,
+            'status' => 0,
+            'due_date' => $duedate,
         ];
+
         $user = $this->userRepository->fetchAuthUser();
         return $this->milestoneRepository->storeMilestone($user, $milestone);
     }

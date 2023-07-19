@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\Milestone;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class MilestoneRepository implements MilestoneRepositoryInterface
@@ -13,9 +14,9 @@ class MilestoneRepository implements MilestoneRepositoryInterface
     public function storeMilestone(User $user, array $milestone): bool
     {
         return (bool)Milestone::create([
-            'user_id' => $user->id,
+            'user_id' => $user['id'],
             'name' => $milestone['name'],
-            'due_data' => $milestone['due_data'],
+            'due_date' => Carbon::parse($milestone['due_date']),
             'status' => $milestone['status'],
         ]);
     }
