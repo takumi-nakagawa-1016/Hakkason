@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import { useLogout } from "../../queries/AuthQuery";
 
 const Header: React.FC = () => {
     const isLoggedIn = true; // 仮のログイン状態（true: ログイン中, false: ログアウト中）
 
     const handleLogout = () => {
-        // ログアウトの処理を記述
+        //
     };
 
     return (
@@ -20,13 +21,14 @@ const Header: React.FC = () => {
                             マイルストーン作成
                         </Button>
                         <Box w="40px" h="40px" bg="gray.200" borderRadius="full" />
+                        <Button colorScheme="blue" onClick={() => useLogout().mutate()}>ログアウト</Button>
                     </Flex>
                 ) : (
                     <Flex>
                         <Button colorScheme="orange" variant="outline" mr={10}>
                             新規登録
                         </Button>
-                        <Button colorScheme="blue">ログイン</Button>
+                        <Button colorScheme="blue"><a href={"login"} >ログイン</a></Button>
                     </Flex>
                 )}
             </Flex>

@@ -3,6 +3,8 @@ import HomePage from "./pages/HomePage";
 import CreateMileStone from "./pages/CreateMileStone";
 import Milestone from "./pages";
 import BoxGrid from "./pages";
+import LoginPage from "./pages/LoginPage";
+
 
 export const router = createBrowserRouter([
     {
@@ -16,5 +18,9 @@ export const router = createBrowserRouter([
     {
         path: 'milestones/index',
         element: <BoxGrid />
+    },
+    {
+        path: 'login',
+        element: <LoginPage />
     }
 ])

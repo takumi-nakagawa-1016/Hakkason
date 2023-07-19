@@ -26,7 +26,7 @@ class LoginController extends Controller
             return response()->json(Auth::user());
         }
 
-        return response()->json([]);
+        return response()->json([],401);
     }
 
     /**
