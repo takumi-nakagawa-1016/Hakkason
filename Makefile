@@ -3,7 +3,6 @@ PROJECT_DIR = reyoom-server
 .PHONY: setup
 
 setup:
-	cp src/.env.example src/.env
 	docker compose up -d --build
 	docker compose exec app composer install
 	docker compose exec app sh -c "npm install"

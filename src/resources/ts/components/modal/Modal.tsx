@@ -1,4 +1,4 @@
-export const Modal = ({ onClose }) => {
+export const Modal = ({}) => {
     return (
         <></>
     );
