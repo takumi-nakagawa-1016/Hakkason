@@ -27,6 +27,11 @@ class MilestoneRequest extends FormRequest
         ];
     }
 
+    public function getId(): string
+    {
+        return $this->input('id');
+    }
+
     public function getName(): string
     {
         return $this->input('name');
@@ -40,5 +45,10 @@ class MilestoneRequest extends FormRequest
     public function getDeadLine(): string
     {
         return $this->input('deadline');
+    }
+
+    public function getStatus(): string
+    {
+        return $this->input('status');
     }
 }

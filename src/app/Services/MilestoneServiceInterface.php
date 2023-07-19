@@ -13,7 +13,7 @@ interface MilestoneServiceInterface
     public function storeMilestone(
         string $name,
         string $description,
-        string $duedate,
+        string $dueDate,
     ): bool;
 
     public function updateMilestone(
@@ -21,10 +21,10 @@ interface MilestoneServiceInterface
         string $name,
         string $description,
         string $status,
-        string $duedate,
+        string $dueDate,
     ): bool;
 
-    public function deleteMilestone(Milestone $milestone): bool;
+    public function deleteMilestone(string $id): bool;
 
     public function fetchUserMilestone(): string;
 

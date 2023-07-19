@@ -38,16 +38,20 @@ class MilestoneController extends Controller
         $response = $this->milestoneService->updateMilestone(
             $request->getId(),
             $request->getName(),
-            $request->getDescription(),
+            $request->getMilestoneContent(),
             $request->getStatus(),
-            $request->getDuedata(),
+            $request->getDeadLine(),
         );
 
         return response()->json($response);
     }
 
-    public function delete()
+    public function delete(MilestoneRequest $request)
     {
+        $response = $this->milestoneService->deleteMilestone(
+            $request->getId(),
+        );
 
+        return $response->json($response);
     }
 }

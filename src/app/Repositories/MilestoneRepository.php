@@ -31,14 +31,13 @@ class MilestoneRepository implements MilestoneRepositoryInterface
             'name' => $milestone['name'],
             'description' => $milestone['description'],
             'status' => $milestone['status'],
-            'due_data' => $milestone['due_data']
+            'due_date' => Carbon::parse($milestone['due_date'])
         ]);
         return true;
     }
 
     public function deleteMilestone(Milestone $milestone): bool
     {
-
         return $milestone->delete();
     }
 

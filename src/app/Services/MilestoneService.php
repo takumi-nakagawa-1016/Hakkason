@@ -21,14 +21,14 @@ class MilestoneService implements MilestoneServiceInterface
     public function storeMilestone(
         string $name,
         string $description,
-        string $duedate,
+        string $dueDate,
     ): bool
     {
         $milestone = [
             'name' => $name,
             'description' => $description,
             'status' => 0,
-            'due_date' => $duedate,
+            'due_date' => $dueDate,
         ];
 
         $user = $this->userRepository->fetchAuthUser();
@@ -40,7 +40,7 @@ class MilestoneService implements MilestoneServiceInterface
         string $name,
         string $description,
         string $status,
-        string $duedata,
+        string $dueDate,
     ): bool
     {
         $milestone = [
@@ -48,14 +48,15 @@ class MilestoneService implements MilestoneServiceInterface
             'name' => $name,
             'description' => $description,
             'status' => $status,
-            'due_data' => $duedata,
+            'due_data' => $dueDate,
         ];
         $user = $this->userRepository->fetchAuthUser();
         return $this->milestoneRepository->updateMilestone($user, $milestone);
     }
 
-    public function deleteMilestone(Milestone $milestone): bool
+    public function deleteMilestone(string $id): bool
     {
+        $milestone = $this->milestoneRepository->findMilestone($id);
         return $this->milestoneRepository->deleteMilestone($milestone);
     }
 
