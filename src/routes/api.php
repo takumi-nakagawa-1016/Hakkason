@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\ChildMilestoneController;
 use App\Http\Controllers\MilestoneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,9 @@ Route::post('/milestone/store', [MilestoneController::class, 'store']);
 Route::patch('/milestone/{id}', [MilestoneController::class, 'update']);
 Route::delete('/milestone/{id}', [MilestoneController::class, 'delete']);
 Route::get('milestone/index', [MilestoneController::class, 'index']);
+
+// ChildMilestone
+Route::post('/child-milestone/store', [ChildMilestoneController::class, 'childStore']);
+Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'childUpdate']);
+Route::delete('child-milestone/{id}', [ChildMilestoneController::class, 'childDelete']);
+Route::get('child-milestone/list', [ChildMilestoneController::class, 'childList']);
