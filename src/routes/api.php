@@ -21,4 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/data', [ApiController::class, 'getData']);
 Route::post('/post', [ApiController::class, 'post']);
+
+// Milestone
 Route::post('/milestone/store', [MilestoneController::class, 'store']);
+Route::patch('/milestone/{id}', [MilestoneController::class, 'update']);
+Route::delete('/milestone/{id}', [MilestoneController::class, 'delete']);
+Route::get('milestone/index', [MilestoneController::class, 'index']);
