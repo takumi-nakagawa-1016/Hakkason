@@ -1,13 +1,20 @@
 import { createBrowserRouter } from 'react-router-dom'
 import HomePage from "./pages/HomePage";
-import MileStone from "./pages/MileStone";
+import CreateMileStone from "./pages/CreateMileStone";
+import Milestone from "./pages";
+import BoxGrid from "./pages";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <MileStone />
-    }, {
+        element: <CreateMileStone />
+    },
+    {
         path: 'milestone',
-        element: <MileStone />
+        element: <CreateMileStone />
+    },
+    {
+        path: 'milestones/index',
+        element: <BoxGrid />
     }
 ])
