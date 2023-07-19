@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\Milestone;
-use App\Models\User;
 use App\Repositories\MilestoneRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 
@@ -15,15 +14,14 @@ class MilestoneService implements MilestoneServiceInterface
         private MilestoneRepositoryInterface $milestoneRepository,
         private UserRepositoryInterface $userRepository,
 
-    )
-    {}
+    ) {
+    }
 
     public function storeMilestone(
         string $name,
         string $description,
         string $dueDate,
-    ): bool
-    {
+    ): bool {
         $milestone = [
             'name' => $name,
             'description' => $description,
@@ -32,6 +30,7 @@ class MilestoneService implements MilestoneServiceInterface
         ];
 
         $user = $this->userRepository->fetchAuthUser();
+
         return $this->milestoneRepository->storeMilestone($user, $milestone);
     }
 
@@ -41,8 +40,7 @@ class MilestoneService implements MilestoneServiceInterface
         string $description,
         string $status,
         string $dueDate,
-    ): bool
-    {
+    ): bool {
         $milestone = [
             'id' => $id,
             'name' => $name,
@@ -51,12 +49,14 @@ class MilestoneService implements MilestoneServiceInterface
             'due_data' => $dueDate,
         ];
         $user = $this->userRepository->fetchAuthUser();
+
         return $this->milestoneRepository->updateMilestone($user, $milestone);
     }
 
     public function deleteMilestone(string $id): bool
     {
         $milestone = $this->milestoneRepository->findMilestone($id);
+
         return $this->milestoneRepository->deleteMilestone($milestone);
     }
 
@@ -64,6 +64,7 @@ class MilestoneService implements MilestoneServiceInterface
     {
         $user = $this->userRepository->fetchAuthUser();
         $milestones = $this->milestoneRepository->fetchUserMilestone($user);
+
         return json_encode($milestones->toArray());
     }
 

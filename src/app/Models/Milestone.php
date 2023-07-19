@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use app\Models\ChildMilestone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use app\Models\ChildMilestone;
 
 class Milestone extends Model
 {
@@ -25,10 +25,8 @@ class Milestone extends Model
     {
         return $this->hasMany(ChildMilestone::class);
     }
-    /**
-     * @return BelongsTo
-     */
-    public function user():BelongsTo
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

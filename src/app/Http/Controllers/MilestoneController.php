@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MilestoneRequest;
 use App\Services\MilestoneServiceInterface;
-use Illuminate\Http\Request;
 
 class MilestoneController extends Controller
 {
     public function __construct(
         private MilestoneServiceInterface $milestoneService,
-    )
-    {
+    ) {
 
     }
 
     public function index()
     {
         $milestones = $this->milestoneService->fetchUserMilestone();
+
         return response()->json($milestones);
     }
 
@@ -52,6 +51,6 @@ class MilestoneController extends Controller
             $request->getId(),
         );
 
-        return $response->json($response);
+        return response()->json($response);
     }
 }

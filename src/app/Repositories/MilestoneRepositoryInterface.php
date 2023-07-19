@@ -8,7 +8,6 @@ use App\Models\Milestone;
 use App\Models\User;
 use Illuminate\Support\Collection;
 
-
 interface MilestoneRepositoryInterface
 {
     public function storeMilestone(User $user, array $milestone): bool;
@@ -20,6 +19,4 @@ interface MilestoneRepositoryInterface
     public function fetchUserMilestone(User $user): Collection;
 
     public function findMilestone(string $id): ?Milestone;
-
-
 }

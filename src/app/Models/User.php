@@ -44,10 +44,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    /**
-     * @return HasMany
-     */
-    public function milestones():HasMany
+    public function milestones(): HasMany
     {
         return $this->hasMany(Milestone::class);
     }

@@ -17,13 +17,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-//        Repository系
+        //        Repository系
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(MilestoneRepositoryInterface::class, MilestoneRepository::class);
 
-//        Service系
+        //        Service系
         $this->app->bind(MilestoneServiceInterface::class, MilestoneService::class);
-
 
     }
 

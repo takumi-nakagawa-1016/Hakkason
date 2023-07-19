@@ -13,7 +13,7 @@ class MilestoneRepository implements MilestoneRepositoryInterface
 {
     public function storeMilestone(User $user, array $milestone): bool
     {
-        return (bool)Milestone::create([
+        return (bool) Milestone::create([
             'user_id' => $user['id'],
             'name' => $milestone['name'],
             'due_date' => Carbon::parse($milestone['due_date']),
@@ -24,15 +24,16 @@ class MilestoneRepository implements MilestoneRepositoryInterface
     public function updateMilestone(User $user, array $milestone): bool
     {
         $milestone = $this->findMilestone($milestone['id']);
-        if (!$milestone) {
+        if (! $milestone) {
             return false;
         }
         $milestone->update([
             'name' => $milestone['name'],
             'description' => $milestone['description'],
             'status' => $milestone['status'],
-            'due_date' => Carbon::parse($milestone['due_date'])
+            'due_date' => Carbon::parse($milestone['due_date']),
         ]);
+
         return true;
     }
 
@@ -43,7 +44,7 @@ class MilestoneRepository implements MilestoneRepositoryInterface
 
     public function fetchUserMilestone(User $user): Collection
     {
-        return  Milestone::query()
+        return Milestone::query()
             ->where('user_id', $user->id)
             ->get();
     }

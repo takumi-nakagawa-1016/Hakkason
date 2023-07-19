@@ -18,7 +18,7 @@ class UserRepository implements UserRepositoryInterface
             ->find(1)
             ->first();
 
-//        Todo 検証環境のため処理が異なります。
-//        return Auth::user();
+        //        Todo 検証環境のため処理が異なります。
+        //        return Auth::user();
     }
 }
