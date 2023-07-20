@@ -20,7 +20,7 @@ const BoxGrid = ({ jsonData }) => {
                         <Box
                             w="80%"
                             h="15%"
-                            bg="green.100" // グリッドの中身は白抜き
+                            bg={"moccasin"} // グリッドの中身は白抜き
                             border="1px solid green.500" // 枠は緑
                             borderRadius="xl"
                             mb={10}
@@ -37,7 +37,7 @@ const BoxGrid = ({ jsonData }) => {
                             {/* 期限とステータスの表示 */}
                             <Flex justify="space-between">
                                 <Text color="black">Due Time: {task.due_time}</Text>
-                                <Text color="white" bg="green.500" px={2} borderRadius="md">
+                                <Text color="white" bg="gray" px={2} borderRadius="md">
                                     Status: {task.status}
                                 </Text>
                             </Flex>

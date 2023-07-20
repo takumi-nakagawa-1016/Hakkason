@@ -42,13 +42,13 @@ const CreateMileStone: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 3}}
             >
-                <Heading color="green.500" size="xl">
-                    さぁ、冒険を始めよう
+                <Heading color="gray.500" size="xl">
+                    Let's Start!!
                 </Heading>
                 <Button
                     onClick={handleOpen}
                     variant="outline"
-                    colorScheme="green"
+                    colorScheme="black.500"
                     leftIcon={<AddIcon />}
                     mt="100px"
                     size="lg"
