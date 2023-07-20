@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use app\Models\GrandchildMilestone;
+use app\Models\Milestone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Milestone;
-use app\Models\GrandchildMilestone;
 
 class ChildMilestone extends Model
 {
