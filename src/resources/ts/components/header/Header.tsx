@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 
 const Header: React.FC = () => {
-    const isLoggedIn = true; // 仮のログイン状態（true: ログイン中, false: ログアウト中）
+    const isLoggedIn = false; // 仮のログイン状態（true: ログイン中, false: ログアウト中）
 
     const handleLogout = () => {
         // ログアウトの処理を記述
