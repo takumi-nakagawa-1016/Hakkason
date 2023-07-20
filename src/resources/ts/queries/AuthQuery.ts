@@ -1,6 +1,7 @@
 import * as api from "../api/AuthAPI"
 import { useQuery, useMutation } from "react-query";
 import { toast } from "react-toastify";
+import { useAuth} from "../hooks/AuthContext";
 
 
 const useUser = () => {
@@ -8,8 +9,12 @@ const useUser = () => {
 }
 
 const useLogin = () => {
+    const { setIsAuth } = useAuth()
     return useMutation(api.login,{
         onSuccess: (user) => {
+            if (user) {
+                setIsAuth(true)
+            }
             console.log(user)
         },
         onError: () => {
@@ -19,8 +24,12 @@ const useLogin = () => {
 }
 
 const useLogout = () => {
+    const { setIsAuth } = useAuth()
     return useMutation(api.logout,{
         onSuccess: (user) => {
+            if (user) {
+                setIsAuth(false)
+            }
             console.log(user)
         },
         onError: () => {

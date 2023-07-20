@@ -5,6 +5,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import {ChakraProvider} from "@chakra-ui/react";
 import {QueryClient, QueryClientProvider} from "react-query";
+import { AuthProvider } from "./hooks/AuthContext";
 
 
 const App: React.FC = () => {
@@ -21,13 +22,15 @@ const App: React.FC = () => {
     })
     return (
         <>
-            <QueryClientProvider client={queryClient}>
-                <ChakraProvider>
-                    <Header />
-                    <RouterProvider router={router} />
-                    <Footer />
-                </ChakraProvider>
-            </QueryClientProvider>
+            <AuthProvider>
+                <QueryClientProvider client={queryClient}>
+                    <ChakraProvider>
+                        <Header />
+                        <RouterProvider router={router} />
+                        <Footer />
+                    </ChakraProvider>
+                </QueryClientProvider>
+            </AuthProvider>
         </>
     )
 }

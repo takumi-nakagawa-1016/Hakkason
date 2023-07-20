@@ -33,7 +33,7 @@ const LoginPage: React.FC = () =>{
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn">ログイン</button>
+                    <button className="btn">ログイン</button>
                 </form>
             </div>
         </div>
