@@ -4,6 +4,8 @@ import CreateMileStone from "./pages/CreateMileStone";
 import Milestone from "./pages";
 import BoxGrid from "./pages";
 import LoginPage from "./pages/LoginPage";
+import {useUser} from "./queries/AuthQuery";
+import {useAuth} from "./hooks/AuthContext";
 
 
 export const router = createBrowserRouter([
@@ -23,4 +25,4 @@ export const router = createBrowserRouter([
         path: 'login',
         element: <LoginPage />
     }
-])
+]);

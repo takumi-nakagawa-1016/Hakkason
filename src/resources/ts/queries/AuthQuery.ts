@@ -1,7 +1,7 @@
 import * as api from "../api/AuthAPI"
 import { useQuery, useMutation } from "react-query";
 import { toast } from "react-toastify";
-import { useAuth} from "../hooks/AuthContext";
+import { useAuth } from "../hooks/AuthContext";
 
 
 const useUser = () => {

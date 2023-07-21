@@ -26,7 +26,7 @@ const App: React.FC = () => {
                 <QueryClientProvider client={queryClient}>
                     <ChakraProvider>
                         <Header />
-                        <RouterProvider router={router} />
+                            <RouterProvider router={router} />
                         <Footer />
                     </ChakraProvider>
                 </QueryClientProvider>
