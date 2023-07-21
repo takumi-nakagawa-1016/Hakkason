@@ -16,22 +16,9 @@ const Header: React.FC = () => {
         }
     },[authUser])
 
-    const GuardRoute = (props: RouterProps) => {
-        if (isAuth) return <Route path="/login" element={<LoginPage/>}/>
-        return <Route {...props} />
-    }
-
-    const LoginRoute = (props: RouterProps) => {
-        if (!isAuth) return <Route path="/" element={<LoginPage/>}/>
-        return <Route {...props} />
-    }
-
 
     const isLoggedIn = isAuth; // 仮のログイン状態（true: ログイン中, false: ログアウト中）
 
-    const handleLogout = () => {
-        //
-    };
 
     const logout = useLogout()
 
@@ -54,7 +41,7 @@ const Header: React.FC = () => {
                         <Button colorScheme="orange" variant="outline" mr={10}>
                             新規登録
                         </Button>
-                        <Button colorScheme="blue"><a href={"login"} >ログイン</a></Button>
+                        <Button colorScheme="blue"><a href={"/login"} >ログイン</a></Button>
                     </Flex>
                 )}
             </Flex>

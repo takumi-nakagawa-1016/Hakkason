@@ -9,41 +9,21 @@ import {useAuth} from "./hooks/AuthContext";
 import {useEffect} from "react";
 
 
-
-useEffect(()=>{
-    if (useUser().data) {
-        useAuth().setIsAuth(true)
-    }
-},[useUser().data])
-
-const GuardRoute = () => {
-
-}
-
 export const router = createBrowserRouter([
-
-    {
-        children: [
-            {
-                path: 'login',
-                element: <LoginPage />
-            },
-            {
-                path: '/',
-                element:(
-                    <RequireAutrh>
-                        <CreateMileStone />
-                    </RequireAutrh>
-                )
-            },
-            {
-                path: 'milestone',
-                element: <CreateMileStone />
-            },
-            {
-                path: 'milestones/index',
-                element: <BoxGrid />
-            },
-        ]
-    }
-])
+        {
+            path: '/',
+            element: <CreateMileStone />
+        },
+        {
+            path: 'milestone',
+            element: <CreateMileStone />
+        },
+        {
+            path: 'milestones/index',
+            element: <BoxGrid />
+        },
+        {
+            path: '/login',
+            element: <LoginPage />
+        },
+]);
