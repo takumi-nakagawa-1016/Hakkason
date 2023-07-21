@@ -33,4 +33,3 @@ Route::get('milestone/index', [MilestoneController::class, 'index']);
 Route::post('/child-milestone/store', [ChildMilestoneController::class, 'childStore']);
 Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'childUpdate']);
 Route::delete('child-milestone/{id}', [ChildMilestoneController::class, 'childDelete']);
-Route::get('child-milestone/list', [ChildMilestoneController::class, 'childList']);

@@ -9,11 +9,6 @@ class ChildMilestoneController extends Controller
     )
     {}
 
-    public function childList()
-    {
-
-    }
-
     public function childStore()
     {
 
