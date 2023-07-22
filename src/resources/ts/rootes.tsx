@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import {useUser} from "./queries/AuthQuery";
 import {useAuth} from "./hooks/AuthContext";
 import {useEffect} from "react";
+import {useAuthUser} from "./hooks/useAuth";
 
 // const { isAuth, setIsAuth } = useAuth()
 // const {isLoading, data: authUser } = useUser()
@@ -26,25 +27,36 @@ import {useEffect} from "react";
 //     if (useAuth().isAuth) return redirect('/')
 // }
 
+const guardLoader = async () => {
+    const user = await useAuthUser()
+    return user ? true : redirect('/login')
+}
 
-
+const guestLoader = async () => {
+    const user = await useAuthUser()
+    return user ? redirect('/'): true
+}
 
 
 export const router = createBrowserRouter([
         {
             path: '/',
             element: <CreateMileStone />,
+            loader: guardLoader
         },
         {
             path: 'milestone',
-            element: <CreateMileStone />
+            element: <CreateMileStone />,
+            loader: guardLoader
         },
         {
             path: 'milestones/index',
-            element: <BoxGrid />
+            element: <BoxGrid />,
+            loader: guardLoader
         },
         {
             path: '/login',
             element: <LoginPage />,
+            loader: guestLoader
         },
 ]);
