@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Models\GrandchildMilestone;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 
@@ -17,7 +18,7 @@ class GrandChildMilestoneRepotitory implements GrandChildMilestoneRepositoryInte
             'name' => $grandChild['name'],
             'description' => $grandChild['description'],
             'status' => $grandChild['status'],
-            'due_date' => $grandChild['due_date'],
+            'due_date' => Carbon::parse($grandChild['due_date']),
         ]);
     }
 

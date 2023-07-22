@@ -12,6 +12,8 @@ use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryInterface;
 use App\Services\ChildMilestoneService;
 use App\Services\ChildMilestoneServiceInterface;
+use App\Services\GrandChildMilestoneService;
+use App\Services\GrandChildMilestoneServiceInterface;
 use App\Services\MilestoneService;
 use App\Services\MilestoneServiceInterface;
 use Illuminate\Support\ServiceProvider;
@@ -32,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         //        Service系
         $this->app->bind(MilestoneServiceInterface::class, MilestoneService::class);
         $this->app->bind(ChildMilestoneServiceInterface::class, ChildMilestoneService::class);
+        $this->app->bind(GrandChildMilestoneServiceInterface::class, GrandChildMilestoneService::class);
 
     }
 
