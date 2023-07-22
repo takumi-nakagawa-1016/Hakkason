@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ChildMilestoneController;
+use App\Http\Controllers\GrandchildMilestoneController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MilestoneController;
 use Illuminate\Http\Request;
@@ -51,3 +52,9 @@ Route::post('/child-milestone/store', [ChildMilestoneController::class, 'storeCh
 Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'updateChild']);
 Route::delete('/child-milestone/{id}', [ChildMilestoneController::class, 'deleteChild']);
 Route::patch('/child-milestone/status/{id}', [ChildMilestoneController::class, 'updateChildStatus']);
+
+// GrandChildMilestone
+Route::post('/grand-child-milestone/store', [GrandchildMilestoneController::class, 'storeGrandChild']);
+Route::patch('/grand-child-milestone/{id}', [GrandchildMilestoneController::class, 'updateGrandChild']);
+Route::delete('/grand-child-milestone/{id}', [GrandchildMilestoneController::class, 'deleteGrandChild']);
+Route::get('/grant-child-milestone/relational-child', [GrandchildMilestoneController::class, 'fetchGrandChildOfChild']);
