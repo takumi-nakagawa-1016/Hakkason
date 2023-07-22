@@ -52,4 +52,13 @@ class ChildMilestoneService implements ChildMilestoneServiceInterface
 
         return $this->childMilestoneRepository->deleteChild($childMilestone);
     }
+
+    public function updateChildStatus(string $id, int $status): bool
+    {
+        $childMilestone = $this->childMilestoneRepository->findChild($id);
+
+        $childMilestone->status = $status;
+
+        return $this->childMilestoneRepository->updateChild($childMilestone);
+    }
 }

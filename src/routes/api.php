@@ -27,9 +27,10 @@ Route::post('/post', [ApiController::class, 'post']);
 Route::post('/milestone/store', [MilestoneController::class, 'store']);
 Route::patch('/milestone/{id}', [MilestoneController::class, 'update']);
 Route::delete('/milestone/{id}', [MilestoneController::class, 'delete']);
-Route::get('milestone/index', [MilestoneController::class, 'index']);
+Route::get('/milestone/index', [MilestoneController::class, 'index']);
 
 // ChildMilestone
-Route::post('/child-milestone/store', [ChildMilestoneController::class, 'childStore']);
-Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'childUpdate']);
-Route::delete('child-milestone/{id}', [ChildMilestoneController::class, 'childDelete']);
+Route::post('/child-milestone/store', [ChildMilestoneController::class, 'storeChild']);
+Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'updateChild']);
+Route::delete('/child-milestone/{id}', [ChildMilestoneController::class, 'deleteChild']);
+Route::patch('/child-milestone/status/{id}', [ChildMilestoneController::class, 'updateChildStatus']);

@@ -13,7 +13,7 @@ class ChildMilestoneController extends Controller
     )
     {}
 
-    public function childStore(ChildMilestoneRequest $request)
+    public function storeChild(ChildMilestoneRequest $request)
     {
         $result = $this->childMilestoneService->storeChild(
             $request->getMilestoneId(),
@@ -26,7 +26,7 @@ class ChildMilestoneController extends Controller
 
     }
 
-    public function childUpdate(ChildMilestoneRequest $request)
+    public function updateChild(ChildMilestoneRequest $request)
     {
         $result = $this->childMilestoneService->updateChild(
             $request->getId(),
@@ -39,12 +39,17 @@ class ChildMilestoneController extends Controller
         return response()->json($result);
     }
 
-    public function childDelete(ChildMilestoneRequest $request)
+    public function deleteChild(ChildMilestoneRequest $request)
     {
         $result = $this->childMilestoneService->deleteChild(
             $request->getId(),
         );
 
         return response()->json($result);
+    }
+
+    public function updateChildStatus(ChildMilestoneRequest $request)
+    {
+
     }
 }

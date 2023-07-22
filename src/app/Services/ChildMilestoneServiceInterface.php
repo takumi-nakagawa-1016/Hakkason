@@ -24,4 +24,10 @@ interface ChildMilestoneServiceInterface
     public function deleteChild(
         string $id,
     ): bool;
+
+    public function updateChildStatus(
+        string $id,
+//        Todo ここちょっと微妙、Enum使いたい部分。
+        int $status,
+    ): bool;
 }
