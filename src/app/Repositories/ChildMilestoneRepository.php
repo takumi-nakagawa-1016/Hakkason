@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\ChildMilestone;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 class ChildMilestoneRepository implements ChildMilestoneRepositoryInterface
 {
@@ -20,14 +21,9 @@ class ChildMilestoneRepository implements ChildMilestoneRepositoryInterface
             ]);
     }
 
-    public function updateChild(array $childMilestone): bool
+    public function updateChild(ChildMilestone $childMilestone): bool
     {
-        return ChildMilestone::update([
-            'name' => $childMilestone['name'],
-            'description' => $childMilestone['description'],
-            'status' => $childMilestone['status'],
-            'due_date' => Carbon::parse($childMilestone['due_date']),
-        ]);
+        return $childMilestone->update();
     }
 
     public function deleteChild(ChildMilestone $childMilestone): bool
@@ -40,5 +36,12 @@ class ChildMilestoneRepository implements ChildMilestoneRepositoryInterface
         return ChildMilestone::query()
             ->find($childId)
             ->first();
+    }
+
+    public function fetchChildMilestones(Collection $milestones): Collection
+    {
+        return ChildMilestone::query()
+            ->whereIn('milestone_id', $milestones)
+            ->get();
     }
 }

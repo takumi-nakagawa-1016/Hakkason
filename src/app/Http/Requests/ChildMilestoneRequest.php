@@ -33,7 +33,7 @@ class ChildMilestoneRequest extends FormRequest
         return $this->input('id');
     }
 
-    public function getParentId(): string
+    public function getMilestoneId(): string
     {
         return $this->input('milestone_id');
     }

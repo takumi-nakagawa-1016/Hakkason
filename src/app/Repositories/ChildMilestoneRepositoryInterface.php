@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\ChildMilestone;
 use App\Models\Milestone;
+use Illuminate\Support\Collection;
 
 interface ChildMilestoneRepositoryInterface
 {
@@ -14,7 +15,7 @@ interface ChildMilestoneRepositoryInterface
     ): bool;
 
     public function updateChild(
-        array $childMilestone,
+        ChildMilestone $childMilestone,
     ): bool;
 
     public function deleteChild(
@@ -24,4 +25,8 @@ interface ChildMilestoneRepositoryInterface
     public function findChild(
         string $childId,
     ): ChildMilestone;
+
+    public function fetchChildMilestones(
+        Collection $milestones
+    ): Collection;
 }
