@@ -4,22 +4,12 @@ import {router} from "./rootes";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import {ChakraProvider} from "@chakra-ui/react";
-import {QueryClient, QueryClientProvider} from "react-query";
+import {QueryClientProvider} from "react-query";
+import { queryClient } from "./queryClient";
 import { AuthProvider } from "./hooks/AuthContext";
 
 
 const App: React.FC = () => {
-    const queryClient = new QueryClient({
-        defaultOptions: {
-            queries: {
-                retry: false
-            },
-            mutations: {
-                retry: false
-            }
-        }
-
-    })
     return (
         <>
             <AuthProvider>

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import {createBrowserRouter, RouteProps, redirect, Route} from 'react-router-dom'
 import HomePage from "./pages/HomePage";
 import CreateMileStone from "./pages/CreateMileStone";
 import Milestone from "./pages";
@@ -8,11 +8,32 @@ import {useUser} from "./queries/AuthQuery";
 import {useAuth} from "./hooks/AuthContext";
 import {useEffect} from "react";
 
+// const { isAuth, setIsAuth } = useAuth()
+// const {isLoading, data: authUser } = useUser()
+// useEffect(()=>{
+//     if (useUser().data) {
+//         useAuth().setIsAuth(true)
+//     }
+// },[useUser().data])
+
+
+
+// const GuardRoute =async () => {
+//     if (!useAuth().isAuth) return redirect('/login')
+// }
+//
+// const LoginRoute = async () => {
+//     if (useAuth().isAuth) return redirect('/')
+// }
+
+
+
+
 
 export const router = createBrowserRouter([
         {
             path: '/',
-            element: <CreateMileStone />
+            element: <CreateMileStone />,
         },
         {
             path: 'milestone',
@@ -24,6 +45,6 @@ export const router = createBrowserRouter([
         },
         {
             path: '/login',
-            element: <LoginPage />
+            element: <LoginPage />,
         },
 ]);
