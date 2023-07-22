@@ -10,6 +10,7 @@ import { AuthProvider } from "./hooks/AuthContext";
 
 
 const App: React.FC = () => {
+
     return (
         <>
             <AuthProvider>

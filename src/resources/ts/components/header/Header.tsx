@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
-import { useLogout, useUser } from "../../queries/AuthQuery";
+import { useUser } from "../../queries/AuthQuery";
+import { useLogout } from "../../hooks/useAuth";
 import { useAuth} from "../../hooks/AuthContext";
 import {Route, RouterProps} from "react-router-dom";
 import { RouteProps} from "react-router-dom";

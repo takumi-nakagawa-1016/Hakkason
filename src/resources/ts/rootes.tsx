@@ -1,31 +1,8 @@
-import {createBrowserRouter, RouteProps, redirect, Route} from 'react-router-dom'
-import HomePage from "./pages/HomePage";
+import {createBrowserRouter, redirect} from 'react-router-dom'
 import CreateMileStone from "./pages/CreateMileStone";
-import Milestone from "./pages";
 import BoxGrid from "./pages";
 import LoginPage from "./pages/LoginPage";
-import {useUser} from "./queries/AuthQuery";
-import {useAuth} from "./hooks/AuthContext";
-import {useEffect} from "react";
 import {useAuthUser} from "./hooks/useAuth";
-
-// const { isAuth, setIsAuth } = useAuth()
-// const {isLoading, data: authUser } = useUser()
-// useEffect(()=>{
-//     if (useUser().data) {
-//         useAuth().setIsAuth(true)
-//     }
-// },[useUser().data])
-
-
-
-// const GuardRoute =async () => {
-//     if (!useAuth().isAuth) return redirect('/login')
-// }
-//
-// const LoginRoute = async () => {
-//     if (useAuth().isAuth) return redirect('/')
-// }
 
 const guardLoader = async () => {
     const user = await useAuthUser()

@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function login(Request $request): JsonResponse
     {
         $credentials = $request->validate([
@@ -26,13 +22,12 @@ class LoginController extends Controller
             return response()->json(Auth::user());
         }
 
-        return response()->json([],401);
+        return response()->json([], 401);
     }
 
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return JsonResponse
      */
     public function logout(Request $request)

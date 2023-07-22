@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLogin } from "../queries/AuthQuery";
+import { useLogin} from "../hooks/useAuth";
 
 const LoginPage: React.FC = () =>{
     const login = useLogin()
@@ -8,7 +8,10 @@ const LoginPage: React.FC = () =>{
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        login.mutate({ email,password })
+        login.mutate({
+            email:email,
+            password:password
+        })
     }
 
     return (
@@ -33,7 +36,7 @@ const LoginPage: React.FC = () =>{
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button className="btn">ログイン</button>
+                    <button type="submit" className="btn">ログイン</button>
                 </form>
             </div>
         </div>

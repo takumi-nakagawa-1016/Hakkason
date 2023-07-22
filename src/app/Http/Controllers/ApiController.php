@@ -16,6 +16,7 @@ class ApiController extends Controller
     public function post(Request $request)
     {
         $data = 'オラァ！';
+
         return response()->json($request);
     }
 }
