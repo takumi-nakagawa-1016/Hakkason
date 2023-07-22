@@ -16,6 +16,7 @@ class MilestoneRepository implements MilestoneRepositoryInterface
         return (bool) Milestone::create([
             'user_id' => $user['id'],
             'name' => $milestone['name'],
+            'description' => $milestone['description'],
             'due_date' => Carbon::parse($milestone['due_date']),
             'status' => $milestone['status'],
         ]);
