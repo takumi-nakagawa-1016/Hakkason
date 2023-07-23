@@ -10,7 +10,7 @@ const Home: React.FC = () => {
                     『Milestone』はあなたの目標達成をサポートします
                 </Text>
                 <Text textAlign="center" fontSize={20}>早速達成したい目標を作成しましょう！！</Text>
-                <Link to="/">
+                <Link to="/create/milestone1">
                     <Button colorScheme="orange.200" variant="outline">
                         Create New Milestone!!
                     </Button>
