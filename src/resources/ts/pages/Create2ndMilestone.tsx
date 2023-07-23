@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import CreateForm from "../components/1st_milestone_CRUD/CreateForm";
-import {Milestone} from "../types/Milestone";
 import {Milestone2nd} from "../types/2ndMilestone";
 import Create2ndForm from "../components/2nd_milstone_CRUD/Create2ndForm";
 import {Box, Text} from "@chakra-ui/react";
