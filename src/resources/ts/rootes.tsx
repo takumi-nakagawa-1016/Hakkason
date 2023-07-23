@@ -1,8 +1,9 @@
 import {createBrowserRouter, redirect} from 'react-router-dom'
-import CreateMileStone from "./pages/CreateMileStone";
 import BoxGrid from "./pages";
 import LoginPage from "./pages/LoginPage";
 import {useAuthUser} from "./hooks/useAuth";
+import CreateMilestone from "./pages/CreateMilestone";
+import Milestone1stIndex from "./pages/Milestone1stIndex";
 
 const guardLoader = async () => {
     const user = await useAuthUser()
@@ -18,17 +19,19 @@ const guestLoader = async () => {
 export const router = createBrowserRouter([
         {
             path: '/',
-            element: <CreateMileStone />,
+            element: <CreateMilestone />,
+
+        },
+        {
+            path: 'index/first',
+            element: <Milestone1stIndex />,
+        },
+        {
+            path: 'index/second/{id}',
             loader: guardLoader
         },
         {
-            path: 'milestone',
-            element: <CreateMileStone />,
-            loader: guardLoader
-        },
-        {
-            path: 'milestones/index',
-            element: <BoxGrid />,
+            path: 'index/third/{id}',
             loader: guardLoader
         },
         {
