@@ -44,7 +44,7 @@ class MilestoneRequest extends FormRequest
 
     public function getDeadLine(): string
     {
-        return $this->input('deadline');
+        return $this->input('due_date');
     }
 
     public function getStatus(): string

@@ -1,17 +1,18 @@
 import React from "react";
 import MilestoneList from "../components/milestone/MilestoneList";
 import {Box, Text} from "@chakra-ui/react";
+import Milestone2ndList from "../components/milestone/Milestone2ndList";
 
-const Milestone1stIndex: React.FC = () => {
+const Milestone2ndIndex: React.FC = () => {
     return (
         <>
             <Box textAlign="center" my="10">
                 <Text fontSize="40px" fontWeight="bold">
-                    1st Milestones
+                    2nd Milestones
                 </Text>
             </Box>
-            <MilestoneList />
+            <Milestone2ndList />
         </>
     );
 }
-export default Milestone1stIndex;
+export default Milestone2ndIndex;

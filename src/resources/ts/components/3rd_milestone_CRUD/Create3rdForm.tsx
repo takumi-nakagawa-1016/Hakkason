@@ -1,22 +1,23 @@
 import React from "react";
-import {Milestone} from "../../types/Milestone";
-import {Box, Button, FormControl, FormLabel, Input, Stack, Flex} from "@chakra-ui/react";
+import { Milestone3rd } from "../../types/3rdMilestone"; // Change import to Milestone3rd
+import { Box, Button, FormControl, FormLabel, Input, Stack, Flex } from "@chakra-ui/react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-interface CreateFormProps{
-    milestone: Milestone,
-    setMilestone: React.Dispatch<React.SetStateAction<Milestone>>
+interface CreateFormProps {
+    milestone: Milestone3rd;
+    setMilestone: React.Dispatch<React.SetStateAction<Milestone3rd>>;
 }
-const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
-    const navigate = useNavigate()
+
+const Create3rdForm: React.FC<CreateFormProps> = ({ milestone, setMilestone }) => {
+    const navigate = useNavigate();
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setMilestone((prevMilestone) => ({
             ...prevMilestone,
             [name]: value,
         }));
-        console.log(milestone)
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -29,7 +30,7 @@ const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
                 return;
             }
 
-            const response = await axios.post("api/milestone/store", milestone, {
+            const response = await axios.post("api/grand_child-milestone/store", milestone, {
                 headers: {
                     "X-CSRF-TOKEN": csrfToken,
                 },
@@ -72,10 +73,12 @@ const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
                         <FormLabel>Deadline:</FormLabel>
                         <Input type="date" name="due_date" value={milestone.due_date} onChange={handleChange} />
                     </FormControl>
-                    <Button type="submit" >Create Milestone</Button>
+                    <input type="hidden" name="child_milestone_id" value={milestone.child_milestone_id} />
+                    <Button type="submit">Create Milestone</Button>
                 </Stack>
             </Box>
         </Flex>
-    )
-}
-export default CreateForm;
+    );
+};
+
+export default Create3rdForm; // Export the updated component

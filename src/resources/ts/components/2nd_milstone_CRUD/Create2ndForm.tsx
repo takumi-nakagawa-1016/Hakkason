@@ -1,22 +1,26 @@
 import React from "react";
-import {Milestone} from "../../types/Milestone";
-import {Box, Button, FormControl, FormLabel, Input, Stack, Flex} from "@chakra-ui/react";
+import { Milestone } from "../../types/Milestone";
+import { Box, Button, FormControl, FormLabel, Input, Stack, Flex } from "@chakra-ui/react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import {Milestone2nd} from "../../types/2ndMilestone";
 
-interface CreateFormProps{
-    milestone: Milestone,
-    setMilestone: React.Dispatch<React.SetStateAction<Milestone>>
+interface CreateFormProps {
+    milestone: Milestone2nd;
+    setMilestone: React.Dispatch<React.SetStateAction<Milestone2nd>>;
 }
-const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
-    const navigate = useNavigate()
+
+const Create2ndForm: React.FC<CreateFormProps> = ({ milestone, setMilestone }) => {
+    const navigate = useNavigate();
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
+        console.log()
         setMilestone((prevMilestone) => ({
             ...prevMilestone,
             [name]: value,
         }));
-        console.log(milestone)
+
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,13 +32,14 @@ const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
                 console.error("CSRF token not found.");
                 return;
             }
+            console.log(csrfToken)
 
-            const response = await axios.post("api/milestone/store", milestone, {
+            const response = await axios.post("api/child-milestone/store", milestone, {
                 headers: {
                     "X-CSRF-TOKEN": csrfToken,
                 },
             });
-
+            console.log(response.data)
             if (response.status === 200) {
                 // リクエストが成功した場合の処理
                 const data = response.data;
@@ -72,10 +77,12 @@ const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
                         <FormLabel>Deadline:</FormLabel>
                         <Input type="date" name="due_date" value={milestone.due_date} onChange={handleChange} />
                     </FormControl>
-                    <Button type="submit" >Create Milestone</Button>
+                    <input type="hidden" name="milestone_id" value={milestone.milestone_id} />
+                    <Button type="submit">Create Milestone</Button>
                 </Stack>
             </Box>
         </Flex>
-    )
-}
-export default CreateForm;
+    );
+};
+
+export default Create2ndForm;

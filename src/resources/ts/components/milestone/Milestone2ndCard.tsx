@@ -1,10 +1,10 @@
 import React from "react";
-import { Milestone } from "../../types/Milestone";
 import { Box, CircularProgress, Flex, Text, Button } from "@chakra-ui/react";
 import {Link} from "react-router-dom";
+import {Milestone2nd} from "../../types/2ndMilestone";
 
-interface MilestoneCardProps extends Milestone {}
-const MilestoneCard: React.FC<MilestoneCardProps> = ({
+interface MilestoneCard2ndProps extends Milestone2nd {}
+const Milestone2ndCard: React.FC<MilestoneCard2ndProps> = ({
                                                          id,
                                                          name,
                                                          description,
@@ -28,7 +28,7 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({
                 <Text fontSize="xl" fontWeight="bold" mb="2">
                     {name}
                 </Text>
-                <Link to="/2nd" state={{id}}>
+                <Link to="/2nd" state={{ child_milestone_id: {id}}}>
                     <Button colorScheme="orange.200" variant="outline" size="sm">
                         +
                     </Button>
@@ -52,7 +52,7 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({
         </Box>
     );
 };
-export default MilestoneCard;
+export default Milestone2ndCard;
 
 const getStatusColor = (status: number): string => {
     if (status <= 30) {

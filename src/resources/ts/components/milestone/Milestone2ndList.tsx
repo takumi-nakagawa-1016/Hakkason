@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import MilestoneCard from "./MilestoneCard";
-import { Milestone } from "../../types/Milestone";
-import parseMilestones from "../../parse/parseMilestones";
 import {Box, Button, Flex} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
+import {Milestone2nd} from "../../types/2ndMilestone";
+import parse2ndMilestones from "../../parse/parseMilestone2nd";
+import Milestone2ndCard from "./Milestone2ndCard";
 
 
-const MilestoneList: React.FC = () => {
-    const [milestones, setMilestones] = useState<Milestone[]>([]);
+const Milestone2ndList: React.FC = () => {
+    const [milestones, setMilestones] = useState<Milestone2nd[]>([]);
 
     useEffect(() => {
         fetchMilestones();
@@ -16,9 +16,9 @@ const MilestoneList: React.FC = () => {
 
     const fetchMilestones = async () => {
         try {
-            const response = await axios.get("/api/milestone/index");
+            const response = await axios.get("/api/child_milestone/${id}");
             const data = response.data;
-            const parsedMilestones = parseMilestones(data);
+            const parsedMilestones = parse2ndMilestones(data);
             setMilestones(parsedMilestones);
         } catch (error) {
             console.error("Error occurred while fetching milestones:", error);
@@ -30,7 +30,7 @@ const MilestoneList: React.FC = () => {
             <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
                 {milestones.map((milestone) => (
                     <Box key={milestone.id} m="2">
-                        <MilestoneCard {...milestone} />
+                        <Milestone2ndCard {...milestone} />
                     </Box>
                 ))}
             </Flex>
@@ -45,4 +45,4 @@ const MilestoneList: React.FC = () => {
     );
 };
 
-export default MilestoneList;
+export default Milestone2ndList;
