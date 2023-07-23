@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouterProvider } from 'react-router-dom'
-import {router} from "./rootes";
+import {router} from "./AppRoutes";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import {Box, ChakraProvider, Flex} from "@chakra-ui/react";

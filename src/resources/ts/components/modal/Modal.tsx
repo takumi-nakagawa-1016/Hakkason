@@ -3,7 +3,7 @@ import React, {FC} from "react";
 
 interface ModalProps {
     showFlag: boolean;
-    setShowModal:;
+    setShowModal:any;
 }
 const Modal: FC<ModalProps> = (props) => {
     const closeModal = () => {

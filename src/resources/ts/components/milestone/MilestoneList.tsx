@@ -15,16 +15,8 @@ const MilestoneList: React.FC = () => {
         try {
             const response = await axios.get("/api/milestone/index");
             const data = response.data;
-            console.log(data);
-            if (Array.isArray(data)) {
-                const parsedMilestones = parseMilestones(data);
-                setMilestones(parsedMilestones);
-            } else if (typeof data === "object") {
-                const parsedMilestones = [parseMilestones(data)];
-                setMilestones(parsedMilestones);
-            } else {
-                console.error("Invalid data format. Expected an array or an object.");
-            }
+            const parsedMilestones = parseMilestones(data);
+            setMilestones(parsedMilestones);
         } catch (error) {
             console.error("Error occurred while fetching milestones:", error);
         }

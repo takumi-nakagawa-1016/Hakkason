@@ -4,6 +4,7 @@ import {Milestone} from "../types/Milestone";
 
 const CreateMilestone: React.FC = () => {
     const [ milestone, setMilestone] = useState<Milestone>({
+        id: 0,
         name: '',
         description: null,
         status: 0,

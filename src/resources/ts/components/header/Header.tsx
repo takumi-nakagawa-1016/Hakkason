@@ -3,7 +3,7 @@ import {Box, Button, Flex, Heading} from '@chakra-ui/react';
 import { useUser } from "../../queries/AuthQuery";
 import { useLogout } from "../../hooks/useAuth";
 import { useAuth} from "../../hooks/AuthContext";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 
 

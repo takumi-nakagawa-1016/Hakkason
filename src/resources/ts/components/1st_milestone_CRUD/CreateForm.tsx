@@ -75,4 +75,4 @@ const CreateForm: React.FC<CreateFormProps> = ({milestone, setMilestone}) => {
         </Flex>
     )
 }
-export default CreateForm
+export default CreateForm;
