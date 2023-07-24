@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChildMilestoneRequest;
-use App\Http\Requests\FetchRequest;
 use App\Models\ChildMilestone;
 use App\Services\ChildMilestoneServiceInterface;
 
@@ -53,11 +52,4 @@ class ChildMilestoneController extends Controller
     {
 
     }
-    public function fetchChildMilestones(FetchRequest $request)
-    {
-        $milestone_id = $request->getMilestoneId();
-        $chileMilestones = ChildMilestone::where('milestone_id', $milestone_id)->get();
-        return response()->json($chileMilestones);
-    }
-
 }

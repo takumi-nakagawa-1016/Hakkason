@@ -56,7 +56,7 @@ const ModalComponent = ({ onClose }) => {
             console.log(data);
 
         } catch (error) {
-            console.log('miss');
+            // エラーハンドリングを行います
         }
     };
 

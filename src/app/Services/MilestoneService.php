@@ -60,12 +60,12 @@ class MilestoneService implements MilestoneServiceInterface
         return $this->milestoneRepository->deleteMilestone($milestone);
     }
 
-    public function fetchUserMilestone(): array
+    public function fetchUserMilestone(): string
     {
         $user = $this->userRepository->fetchAuthUser();
         $milestones = $this->milestoneRepository->fetchUserMilestone($user);
 
-        return $milestones->toArray();
+        return json_encode($milestones->toArray());
     }
 
     public function findMilestone(Milestone $milestone): Milestone
