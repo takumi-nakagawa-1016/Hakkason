@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'updateChild']);
     Route::delete('/child-milestone/{id}', [ChildMilestoneController::class, 'deleteChild']);
     Route::patch('/child-milestone/status/{id}', [ChildMilestoneController::class, 'updateChildStatus']);
-    Route::get('/child-milestone/{milestone_id}', [ChildMilestoneController::class, '']);
+    Route::get('/child-milestone/{milestone_id}', [ChildMilestoneController::class, 'fetchChildMilestones']);
 
     // GrandChildMilestone
     Route::post('/grand-child-milestone/store', [GrandchildMilestoneController::class, 'storeGrandChild']);

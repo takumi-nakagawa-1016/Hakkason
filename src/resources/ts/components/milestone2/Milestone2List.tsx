@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Box, Button, Flex} from "@chakra-ui/react";
-import {Link} from "react-router-dom";
-import {Milestone1} from "../../types/Milestone1";
-import Milestone1Card from "./Milestone1Card";
-import parseMilestone1 from "./perseMilestone1";
+import {Link, useParams} from "react-router-dom";
+import {Milestone2} from "../../types/Milestone2";
+import Milestone2Card from "./Milestone2Card";
+import parseMilestone2 from "./perseMilestone2";
 
 
-const Milestone1List: React.FC = () => {
-    const [milestones, setMilestones] = useState<Milestone1[]>([]);
+
+const Milestone2List: React.FC = () => {
+    const [milestones, setMilestones] = useState<Milestone2[]>([]);
+    const params = useParams()
 
     useEffect(() => {
         fetchMilestones();
@@ -16,9 +18,10 @@ const Milestone1List: React.FC = () => {
 
     const fetchMilestones = async () => {
         try {
-            const response = await axios.get("/api/milestone/index");
+            console.log("/api/child-milestone/"+params.milestone_id)
+            const response = await axios.get("/api/child-milestone/"+params.milestone_id);
             const data = response.data;
-            const parsedMilestones = parseMilestone1(data);
+            const parsedMilestones = parseMilestone2(data);
             setMilestones(parsedMilestones);
         } catch (error) {
             console.error("Error occurred while fetching milestones:", error);
@@ -30,12 +33,12 @@ const Milestone1List: React.FC = () => {
             <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
                 {milestones.map((milestone) => (
                     <Box key={milestone.id} m="2">
-                        <Milestone1Card {...milestone} />
+                        <Milestone2Card {...milestone} />
                     </Box>
                 ))}
             </Flex>
             <Flex justifyContent="flex-end" mt="4">
-                <Link to="/create/milestone1">
+                <Link to={`/create/milestone2/${params.milestone_id}`}>
                     <Button colorScheme="orange.200" variant="outline">
                         マイルストーン作成
                     </Button>
@@ -45,4 +48,4 @@ const Milestone1List: React.FC = () => {
     );
 };
 
-export default Milestone1List;
+export default Milestone2List;
