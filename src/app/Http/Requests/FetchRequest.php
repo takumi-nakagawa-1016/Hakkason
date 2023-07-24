@@ -28,6 +28,6 @@ class FetchRequest extends FormRequest
 
     public function getMilestoneId(): string
     {
-        return $this->input('milestone_id');
+        return $this->route('id');
     }
 }

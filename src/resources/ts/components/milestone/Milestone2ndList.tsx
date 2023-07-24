@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Box, Button, Flex} from "@chakra-ui/react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Milestone2nd} from "../../types/2ndMilestone";
 import parse2ndMilestones from "../../parse/parseMilestone2nd";
 import Milestone2ndCard from "./Milestone2ndCard";
@@ -9,6 +9,7 @@ import Milestone2ndCard from "./Milestone2ndCard";
 
 const Milestone2ndList: React.FC = () => {
     const [milestones, setMilestones] = useState<Milestone2nd[]>([]);
+    const params = useParams()
 
     useEffect(() => {
         fetchMilestones();
@@ -16,9 +17,11 @@ const Milestone2ndList: React.FC = () => {
 
     const fetchMilestones = async () => {
         try {
-            const response = await axios.get("/api/child_milestone/${id}");
+            const response = await axios.get("/api/child-milestone/"+params.milestone_id);
             const data = response.data;
-            const parsedMilestones = parse2ndMilestones(data);
+            console.log(data)
+            // 適切な形式のデータを渡す
+            const parsedMilestones = parse2ndMilestones(data.childMilestones);
             setMilestones(parsedMilestones);
         } catch (error) {
             console.error("Error occurred while fetching milestones:", error);

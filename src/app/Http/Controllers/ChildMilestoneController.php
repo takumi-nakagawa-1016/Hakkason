@@ -56,8 +56,8 @@ class ChildMilestoneController extends Controller
     public function fetchChildMilestones(FetchRequest $request)
     {
         $milestone_id = $request->getMilestoneId();
-        $chileMilestones = ChildMilestone::where('milestone_id', $milestone_id)->get();
-        return response()->json($chileMilestones);
+        $childMilestones = ChildMilestone::where('milestone_id', $milestone_id)->get()->toArray();
+        return response()->json(['childMilestones' => $childMilestones]);
     }
 
 }

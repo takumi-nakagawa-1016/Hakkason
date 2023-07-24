@@ -34,7 +34,7 @@ const Create2ndForm: React.FC<CreateFormProps> = ({ milestone, setMilestone }) =
             }
             console.log(csrfToken)
 
-            const response = await axios.post("api/child-milestone/store", milestone, {
+            const response = await axios.post("/api/child-milestone/store", milestone, {
                 headers: {
                     "X-CSRF-TOKEN": csrfToken,
                 },
@@ -45,7 +45,7 @@ const Create2ndForm: React.FC<CreateFormProps> = ({ milestone, setMilestone }) =
                 const data = response.data;
                 console.log("Milestone created successfully:", data);
                 // 成功したら、何かの処理を追加する
-                navigate('index/milestone1st');
+                navigate(`/index/milestone2nd/${milestone.milestone_id}`);
             } else {
                 // リクエストが失敗した場合の処理
                 console.error("Failed to create Milestone");

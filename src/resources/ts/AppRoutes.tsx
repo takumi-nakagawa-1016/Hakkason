@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
         element: <Create2ndMilestone />,
     },
     {
-        path: '/index/milestone2nd',
+        path: '/index/milestone2nd/:milestone_id',
         element: <Milestone2ndIndex />,
     },
     {
