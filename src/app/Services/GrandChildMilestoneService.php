@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Models\GrandchildMilestone;
+use App\Models\GrandChildMilestone;
 use App\Repositories\GrandChildMilestoneRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;

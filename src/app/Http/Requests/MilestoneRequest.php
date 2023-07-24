@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
-
 class MilestoneRequest extends FormRequest
 {
     /**
@@ -13,7 +10,6 @@ class MilestoneRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,7 +19,7 @@ class MilestoneRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'deadline' => ['required'],
+//            'deadline' => ['required'],
         ];
     }
 
@@ -31,7 +27,6 @@ class MilestoneRequest extends FormRequest
     {
         return $this->input('id');
     }
-
     public function getName(): string
     {
         return $this->input('name');
@@ -39,12 +34,12 @@ class MilestoneRequest extends FormRequest
 
     public function getMilestoneContent(): string
     {
-        return $this->input('content');
+        return $this->input('description');
     }
 
     public function getDeadLine(): string
     {
-        return $this->input('deadline');
+        return $this->input('due_date');
     }
 
     public function getStatus(): string

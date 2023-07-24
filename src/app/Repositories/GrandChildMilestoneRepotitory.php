@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
-use App\Models\GrandchildMilestone;
+use App\Models\GrandChildMilestone;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
@@ -13,7 +13,7 @@ class GrandChildMilestoneRepotitory implements GrandChildMilestoneRepositoryInte
 {
     public function storeGrandChild(array $grandChild): bool
     {
-        return GrandchildMilestone::create([
+        return (bool)GrandChildMilestone::create([
             'child_milestone_id' => $grandChild['child_milestone_id'],
             'name' => $grandChild['name'],
             'description' => $grandChild['description'],
@@ -22,26 +22,26 @@ class GrandChildMilestoneRepotitory implements GrandChildMilestoneRepositoryInte
         ]);
     }
 
-    public function updateGrandChild(GrandchildMilestone $grandChild): bool
+    public function updateGrandChild(GrandChildMilestone $grandChild): bool
     {
         return $grandChild->update();
     }
 
-    public function deleteGrandChild(GrandchildMilestone $grandChild): bool
+    public function deleteGrandChild(GrandChildMilestone $grandChild): bool
     {
         return $grandChild->delete();
     }
 
-    public function findGrandChild(string $id): GrandchildMilestone
+    public function findGrandChild(string $id): GrandChildMilestone
     {
-        return GrandchildMilestone::query()
+        return GrandChildMilestone::query()
             ->find($id)
             ->first();
     }
 
     public function fetchGrandChildOfChild(string $childMilestoneId): Collection
     {
-        return GrandchildMilestone::query()
+        return GrandChildMilestone::query()
             ->where('child_milestone_id', $childMilestoneId)
             ->get();
     }

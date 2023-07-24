@@ -6,7 +6,7 @@ use app\Models\ChildMilestone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GrandchildMilestone extends Model
+class GrandChildMilestone extends Model
 {
     use HasFactory;
 

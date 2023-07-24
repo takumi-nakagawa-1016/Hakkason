@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use app\Models\GrandchildMilestone;
+use app\Models\GrandChildMilestone;
 use app\Models\Milestone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -31,6 +31,6 @@ class ChildMilestone extends Model
      */
     public function grandchild_milestones()
     {
-        return $this->hasMany(GrandchildMilestone::class);
+        return $this->hasMany(GrandChildMilestone::class);
     }
 }
