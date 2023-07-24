@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
-import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import {Box, Button, Flex, Heading} from '@chakra-ui/react';
 import { useUser } from "../../queries/AuthQuery";
 import { useLogout } from "../../hooks/useAuth";
 import { useAuth} from "../../hooks/AuthContext";
-import {Route, RouterProps} from "react-router-dom";
-import { RouteProps} from "react-router-dom";
-import LoginPage from "../../pages/LoginPage";
+
+
 
 const Header: React.FC = () => {
     const { isAuth,setIsAuth} = useAuth()
     const { isLoading, data: authUser } = useUser()
+
 
     useEffect(()=> {
         if (authUser){
@@ -31,11 +31,11 @@ const Header: React.FC = () => {
                 </Heading>
                 {isLoggedIn ? (
                     <Flex alignItems="center">
-                        <Button colorScheme="orange.200" variant="outline" mr={20}>
-                            マイルストーン作成
+                        <Button colorScheme="orange.200" variant="outline" mr={10}>
+                                マイルストーン作成
                         </Button>
+                        <Button colorScheme="blue" onClick={() => logout.mutate()} mr={10}>ログアウト</Button>
                         <Box w="40px" h="40px" bg="gray.200" borderRadius="full" />
-                        <Button colorScheme="blue" onClick={() => logout.mutate()}>ログアウト</Button>
                     </Flex>
                 ) : (
                     <Flex>

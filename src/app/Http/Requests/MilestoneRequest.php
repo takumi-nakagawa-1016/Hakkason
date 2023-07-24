@@ -23,7 +23,7 @@ class MilestoneRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'deadline' => ['required'],
+//            'deadline' => ['required'],
         ];
     }
 
@@ -39,12 +39,12 @@ class MilestoneRequest extends FormRequest
 
     public function getMilestoneContent(): string
     {
-        return $this->input('content');
+        return $this->input('description');
     }
 
     public function getDeadLine(): string
     {
-        return $this->input('deadline');
+        return $this->input('due_date');
     }
 
     public function getStatus(): string

@@ -5,7 +5,6 @@ const LoginPage: React.FC = () =>{
     const login = useLogin()
     const [email, setEmail] = useState('admin@example.com')
     const [password, setPassword] = useState('password')
-
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         login.mutate({

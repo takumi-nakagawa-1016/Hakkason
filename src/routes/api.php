@@ -26,9 +26,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::get('/data', [ApiController::class, 'getData']);
-    Route::post('/post', [ApiController::class, 'post']);
-
     // Milestone
     Route::post('/milestone/store', [MilestoneController::class, 'store']);
     Route::patch('/milestone/{id}', [MilestoneController::class, 'update']);
@@ -52,6 +49,7 @@ Route::post('/child-milestone/store', [ChildMilestoneController::class, 'storeCh
 Route::patch('/child-milestone/{id}', [ChildMilestoneController::class, 'updateChild']);
 Route::delete('/child-milestone/{id}', [ChildMilestoneController::class, 'deleteChild']);
 Route::patch('/child-milestone/status/{id}', [ChildMilestoneController::class, 'updateChildStatus']);
+Route::get('/child-milestone/{milestone_id}', [ChildMilestoneController::class, 'fetchChildMilestones']);
 
 // GrandChildMilestone
 Route::post('/grand-child-milestone/store', [GrandchildMilestoneController::class, 'storeGrandChild']);
