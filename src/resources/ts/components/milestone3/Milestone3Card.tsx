@@ -3,16 +3,17 @@ import { Box, CircularProgress, Flex, Text, Button } from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import {Milestone1} from "../../types/Milestone1";
 import {Milestone2} from "../../types/Milestone2";
+import {Milestone3} from "../../types/Milestone3";
 
-interface MilestoneCardProps extends Milestone2 {}
-const Milestone2Card: React.FC<MilestoneCardProps> = ({
-                                                         id,
-                                                         name,
-                                                         description,
-                                                         status,
-                                                         due_date,
-                                                         milestone_id,
-                                                     }) => {
+interface MilestoneCard3Props extends Milestone3 {}
+const Milestone2Card: React.FC<MilestoneCard3Props> = ({
+                                                          id,
+                                                          name,
+                                                          description,
+                                                          status,
+                                                          due_date,
+                                                          child_milestone_id,
+                                                      }) => {
     const statusColor = getStatusColor(status);
 
     return (
@@ -30,11 +31,9 @@ const Milestone2Card: React.FC<MilestoneCardProps> = ({
                 <Text fontSize="xl" fontWeight="bold" mb="2">
                     {name}
                 </Text>
-                <Link to={`/create/milestone3/${id}`}>
-                    <Button colorScheme="orange.200" variant="outline" size="sm">
-                        +
-                    </Button>
-                </Link>
+                <Button colorScheme="orange.200" variant="outline" size="sm">
+                    +
+                </Button>
             </Flex>
             <Text fontSize="sm" mb="4">
                 {description}

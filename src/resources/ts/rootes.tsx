@@ -6,6 +6,8 @@ import CreateMilestone1 from "./pages/milestone1/CreateMilestone1";
 import IndexMilestone1 from "./pages/milestone1/IndexMilestone1";
 import CreateMilestone2 from "./pages/milestone2/CreateMilestone2";
 import IndexMilestone2 from "./pages/milestone2/IndexMilestone2";
+import CreateMilestone3 from "./pages/milestone3/CreateMilestone3";
+import IndexMilestone3 from "./pages/milestone3/IndexMilestone3";
 
 const guardLoader = async () => {
     const user = await useAuthUser()
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
     {
         path: '/index/milestone2/:milestone_id',
         element: <IndexMilestone2 />,
+    },
+    {
+        path: '/create/milestone3/:child_milestone_id',
+        element: <CreateMilestone3 />,
+    },
+    {
+        path: '/index/milestone3/:child_milestone_id',
+        element: <IndexMilestone3 />,
     },
     {
         path: '/login',

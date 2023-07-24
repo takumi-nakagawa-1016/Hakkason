@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GrandChildMilestoneRequest;
+use App\Models\GrandChildMilestone;
 use App\Services\GrandChildMilestoneServiceInterface;
 
 class GrandchildMilestoneController extends Controller
@@ -46,12 +47,9 @@ class GrandchildMilestoneController extends Controller
         return response()->json($result);
     }
 
-    public function fetchGrandChildOfChild(GrandChildMilestoneRequest $request)
+    public function fetchGrandChildMilestones($child_milestone_id)
     {
-        $result = $this->grandChildMilestoneService->fetchGrandChildOfChild(
-            $request->getChileMilestoneId(),
-        );
-
-        return response()->json($result);
+        $grandChileMilestones = GrandChildMilestone::where('child_milestone_id', $child_milestone_id)->get();
+        return response()->json($grandChileMilestones);
     }
 }
