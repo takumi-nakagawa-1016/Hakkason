@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {Box, Button, Flex, FormControl, FormLabel, Input, Stack, Text} from "@chakra-ui/react";
 import { Milestone1 } from "../../types/Milestone1";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 type CreateMilestone1FormProps = {
     milestone: Milestone1;
@@ -12,6 +13,7 @@ const CreateMilestone1Form: React.FC<CreateMilestone1FormProps> = ({
                                                                        milestone,
                                                                        setMilestone,
                                                                    }) => {
+    const navigate = useNavigate()
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setMilestone((prevMilestone) => ({
@@ -31,7 +33,7 @@ const CreateMilestone1Form: React.FC<CreateMilestone1FormProps> = ({
                 return;
             }
 
-            const response = await axios.post("api/milestone/store", milestone, {
+            const response = await axios.post("/api/milestone/store", milestone, {
                 headers: {
                     "X-CSRF-TOKEN": csrfToken,
                 },
@@ -41,6 +43,7 @@ const CreateMilestone1Form: React.FC<CreateMilestone1FormProps> = ({
                 // リクエストが成功した場合の処理
                 const data = response.data;
                 console.log("Milestone created successfully:", data);
+                navigate('/index/milestone1');
             } else {
                 // リクエストが失敗した場合の処理
                 console.error("Failed to create Milestone");
