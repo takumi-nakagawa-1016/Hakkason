@@ -24,7 +24,7 @@ interface MilestoneServiceInterface
 
     public function deleteMilestone(string $id): bool;
 
-    public function fetchUserMilestone(): array;
+    public function fetchUserMilestone(): string;
 
     public function findMilestone(Milestone $milestone): Milestone;
 }
