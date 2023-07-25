@@ -6,6 +6,8 @@ setup:
 	docker compose up -d --build
 	docker compose exec app composer install
 	docker compose exec app sh -c "npm install"
+	@make freshseed
+	@make dev
 
 up:
 	docker compose up -d

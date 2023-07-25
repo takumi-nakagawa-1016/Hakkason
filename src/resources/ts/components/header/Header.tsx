@@ -31,10 +31,6 @@ const Header: React.FC = () => {
                 </Heading>
                 {isLoggedIn ? (
                     <Flex alignItems="center">
-                        <Button colorScheme="orange.200" variant="outline" mr={20}>
-                            マイルストーン作成
-                        </Button>
-                        <Box w="40px" h="40px" bg="gray.200" borderRadius="full" />
                         <Button colorScheme="blue" onClick={() => logout.mutate()}>ログアウト</Button>
                     </Flex>
                 ) : (
