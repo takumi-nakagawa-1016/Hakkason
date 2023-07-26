@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, CircularProgress, Flex, Text, Button } from "@chakra-ui/react";
+import {Box, CircularProgress, Flex, Text, Button, ListIcon} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import {Milestone1} from "../../types/Milestone1";
+import {AddIcon, HamburgerIcon, Icon, LinkIcon} from "@chakra-ui/icons";
 
 interface MilestoneCardProps extends Milestone1 {}
 const Milestone1Card: React.FC<MilestoneCardProps> = ({
@@ -28,11 +29,18 @@ const Milestone1Card: React.FC<MilestoneCardProps> = ({
                 <Text fontSize="xl" fontWeight="bold" mb="2">
                     {name}
                 </Text>
-                <Link to={`/create/milestone2/${id}`}>
-                    <Button colorScheme="orange.200" variant="outline" size="sm">
-                        +
-                    </Button>
-                </Link>
+                <div>
+                    <Link to={`/create/milestone2/${id}`}>
+                        <Button colorScheme="orange.200" variant="outline" size="sm">
+                            <Icon as={AddIcon} />
+                        </Button>
+                    </Link>
+                    <Link to={`/index/milestone2/${id}`}>
+                        <Button colorScheme="orange.200" variant="outline" size="sm">
+                            <Icon as={HamburgerIcon} />
+                        </Button>
+                    </Link>
+                </div>
             </Flex>
             <Text fontSize="sm" mb="4">
                 {description}

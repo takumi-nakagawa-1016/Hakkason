@@ -16,7 +16,7 @@ const App: React.FC = () => {
                 <QueryClientProvider client={queryClient}>
                     <Flex direction="column" minHeight="100vh">
                         <Header />
-                        <Box flex="1" mt={10} mb={20} mr={20} ml={20}>
+                        <Box flex="1" mt={10} mb={10} mr={20} ml={20}>
                             <RouterProvider router={router} />
                         </Box>
                         <Footer />

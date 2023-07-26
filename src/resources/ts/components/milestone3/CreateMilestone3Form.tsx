@@ -56,6 +56,10 @@ const CreateMilestone3Form: React.FC<CreateMilestone3FormProps> = ({
         }
     };
 
+    const handleToIndex = () => {
+        navigate(`/index/milestone2/${milestone.child_milestone_id}`);
+    }
+
     return (
         <Flex align="center" justify="center">
             <Box as="form" onSubmit={handleSubmit}>
@@ -78,6 +82,7 @@ const CreateMilestone3Form: React.FC<CreateMilestone3FormProps> = ({
                     </FormControl>
                     <input type="hidden" name="child_milestone_id" value={params.child_milestone_id} />
                     <Button type="submit" >Create Milestone</Button>
+                    <Button onClick={handleToIndex}  colorScheme="blue">→ 3rd Milestones</Button>
                 </Stack>
             </Box>
         </Flex>

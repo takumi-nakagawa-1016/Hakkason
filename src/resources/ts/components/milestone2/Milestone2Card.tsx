@@ -3,6 +3,7 @@ import { Box, CircularProgress, Flex, Text, Button } from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import {Milestone1} from "../../types/Milestone1";
 import {Milestone2} from "../../types/Milestone2";
+import {AddIcon, ArrowUpIcon, HamburgerIcon, Icon} from "@chakra-ui/icons";
 
 interface MilestoneCardProps extends Milestone2 {}
 const Milestone2Card: React.FC<MilestoneCardProps> = ({
@@ -30,11 +31,23 @@ const Milestone2Card: React.FC<MilestoneCardProps> = ({
                 <Text fontSize="xl" fontWeight="bold" mb="2">
                     {name}
                 </Text>
-                <Link to={`/create/milestone3/${id}`}>
-                    <Button colorScheme="orange.200" variant="outline" size="sm">
-                        +
-                    </Button>
-                </Link>
+                <div>
+                    <Link to={`/index/milestone1/`}>
+                        <Button colorScheme="orange.200" variant="outline" size="sm">
+                            <Icon as={ArrowUpIcon} />
+                        </Button>
+                    </Link>
+                    <Link to={`/create/milestone3/${milestone_id}`}>
+                        <Button colorScheme="orange.200" variant="outline" size="sm">
+                            <Icon as={AddIcon} />
+                        </Button>
+                    </Link>
+                    <Link to={`/index/milestone3/${milestone_id}`}>
+                        <Button colorScheme="orange.200" variant="outline" size="sm">
+                            <Icon as={HamburgerIcon} />
+                        </Button>
+                    </Link>
+                </div>
             </Flex>
             <Text fontSize="sm" mb="4">
                 {description}

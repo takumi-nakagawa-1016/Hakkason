@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {Milestone1} from "../../types/Milestone1";
 import {Milestone2} from "../../types/Milestone2";
 import {Milestone3} from "../../types/Milestone3";
+import {AddIcon, ArrowUpIcon, HamburgerIcon, Icon} from "@chakra-ui/icons";
 
 interface MilestoneCard3Props extends Milestone3 {}
 const Milestone2Card: React.FC<MilestoneCard3Props> = ({
@@ -31,9 +32,20 @@ const Milestone2Card: React.FC<MilestoneCard3Props> = ({
                 <Text fontSize="xl" fontWeight="bold" mb="2">
                     {name}
                 </Text>
-                <Button colorScheme="orange.200" variant="outline" size="sm">
-                    +
-                </Button>
+                <div>
+                    <Link to={`/index/milestone2/${child_milestone_id}`}>
+                        <Button colorScheme="orange.200" variant="outline" size="sm">
+                            <Icon as={ArrowUpIcon} />
+                        </Button>
+                    </Link>
+                    <Button colorScheme="orange.200" variant="outline" size="sm">
+                        <Icon as={AddIcon} />
+                    </Button>
+
+                    <Button colorScheme="orange.200" variant="outline" size="sm">
+                        <Icon as={HamburgerIcon} />
+                    </Button>
+                </div>
             </Flex>
             <Text fontSize="sm" mb="4">
                 {description}
