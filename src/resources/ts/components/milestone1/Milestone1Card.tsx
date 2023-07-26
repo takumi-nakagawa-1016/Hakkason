@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 import {Milestone1} from "../../types/Milestone1";
 import {AddIcon, HamburgerIcon, Icon, LinkIcon} from "@chakra-ui/icons";
 
-interface MilestoneCardProps extends Milestone1 {}
-const Milestone1Card: React.FC<MilestoneCardProps> = ({
+interface MilestoneCard1Props extends Milestone1 {}
+const Milestone1Card: React.FC<MilestoneCard1Props> = ({
                                                          id,
                                                          name,
                                                          description,
