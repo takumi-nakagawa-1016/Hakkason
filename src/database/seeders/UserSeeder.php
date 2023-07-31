@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'id' => 1,
                 'name' => 'admin',
                 'email' => 'admin@example.com',
                 'email_verified_at' => Carbon::now(),

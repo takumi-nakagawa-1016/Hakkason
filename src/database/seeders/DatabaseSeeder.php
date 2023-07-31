@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(UserSeeder::class);
+        $this->call(MilestoneSeeder::class);
+        $this->call(ChildMilestoneSeeder::class);
+        $this->call(GrandChildMilestoneSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
