@@ -60,6 +60,7 @@ const CreateMilestone3Form: React.FC<CreateMilestone3FormProps> = ({
         navigate(`/index/milestone2/${milestone.child_milestone_id}`);
     }
 
+
     return (
         <Flex align="center" justify="center">
             <Box as="form" onSubmit={handleSubmit}>

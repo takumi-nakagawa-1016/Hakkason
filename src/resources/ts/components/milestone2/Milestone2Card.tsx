@@ -42,7 +42,7 @@ const Milestone2Card: React.FC<MilestoneCardProps> = ({
                             <Icon as={AddIcon} />
                         </Button>
                     </Link>
-                    <Link to={`/index/milestone3/${milestone_id}`}>
+                    <Link to={`/index/milestone3/${id}`}>
                         <Button colorScheme="orange.200" variant="outline" size="sm">
                             <Icon as={HamburgerIcon} />
                         </Button>
