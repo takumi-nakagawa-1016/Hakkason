@@ -62,7 +62,7 @@ class ChildMilestoneController extends Controller
 
     public function fetchParentMilestone($childMilestoneId)
     {
-        $childMilestone = ChildMilestone::where('id', $childMilestoneId)->first;
+        $childMilestone = ChildMilestone::where('id', $childMilestoneId)->first();
 
         return response()->json($childMilestone['milestone_id']);
     }
