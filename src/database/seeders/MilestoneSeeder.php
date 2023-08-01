@@ -37,7 +37,7 @@ class MilestoneSeeder extends Seeder
                 'user_id' => 1,
                 'name' => 'ハッカソン提出',
                 'description' => '全然間に合わないよ！！',
-                'status' => 20,
+                'status' => 90,
                 'due_date' => Carbon::parse('2023-08-03'),
             ],
         ]);
