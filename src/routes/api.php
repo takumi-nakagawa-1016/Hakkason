@@ -47,6 +47,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/grand-child-milestone/{id}', [GrandchildMilestoneController::class, 'deleteGrandChild']);
     Route::get('/grant-child-milestone/{child_milestone_id}',
         [GrandchildMilestoneController::class, 'fetchGrandChildMilestones']);
+
+    Route::get('/parent-milestone', [ChildMilestoneController::class, 'fetchParentMilestone']);
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
