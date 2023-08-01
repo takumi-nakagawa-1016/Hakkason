@@ -64,6 +64,6 @@ class ChildMilestoneController extends Controller
     {
         $childMilestone = ChildMilestone::find($childMilestoneId);
 
-        return response()->json($childMilestone->milestone_id);
+        return response()->json($childMilestone['milestone_id']);
     }
 }
