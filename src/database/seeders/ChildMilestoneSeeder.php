@@ -20,7 +20,7 @@ class ChildMilestoneSeeder extends Seeder
                 'milestone_id' => 1,
                 'name' => 'バックエンドを学習する。',
                 'description' => '',
-                'status' => 0,
+                'status' => 30,
                 'due_date' => Carbon::parse('2023-09-01'),
             ],
             [
@@ -28,7 +28,7 @@ class ChildMilestoneSeeder extends Seeder
                 'milestone_id' => 1,
                 'name' => 'フロントエンドを学習する、',
                 'description' => '',
-                'status' => 0,
+                'status' => 20,
                 'due_date' => Carbon::parse('2023-09-01'),
             ],
             [
@@ -36,7 +36,7 @@ class ChildMilestoneSeeder extends Seeder
                 'milestone_id' => 1,
                 'name' => 'インフラを学習する、',
                 'description' => '',
-                'status' => 0,
+                'status' => 10,
                 'due_date' => Carbon::parse('2023-09-01'),
             ],
             [
@@ -44,7 +44,7 @@ class ChildMilestoneSeeder extends Seeder
                 'milestone_id' => 2,
                 'name' => 'お金を貯める',
                 'description' => '５年以内に500万円貯める',
-                'status' => 0,
+                'status' => 50,
                 'due_date' => Carbon::parse('2023-09-01'),
             ],
             [
@@ -52,7 +52,7 @@ class ChildMilestoneSeeder extends Seeder
                 'milestone_id' => 2,
                 'name' => '外国語を勉強する',
                 'description' => '世界一周する際に必要な語学を学ぶ',
-                'status' => 0,
+                'status' => 80,
                 'due_date' => Carbon::parse('2023-09-01'),
             ],
             [
@@ -60,8 +60,24 @@ class ChildMilestoneSeeder extends Seeder
                 'milestone_id' => 2,
                 'name' => 'ともに旅するパートナーを見つける',
                 'description' => '世界１周を一緒に旅できるパートナーを探し出す。',
-                'status' => 0,
+                'status' => 1,
                 'due_date' => Carbon::parse('2023-09-01'),
+            ],
+            [
+                'id' => 7,
+                'milestone_id' => 3,
+                'name' => 'フロント表示',
+                'description' => '綺麗にしたい。',
+                'status' => 20,
+                'due_date' => Carbon::parse('2023-08-03'),
+            ],
+            [
+                'id' => 8,
+                'milestone_id' => 3,
+                'name' => 'バックエンド処理',
+                'description' => 'もっと細かい処理を追加したい。',
+                'status' => 20,
+                'due_date' => Carbon::parse('2023-08-03'),
             ],
 
         ]);
